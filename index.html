@@ -248,7 +248,15 @@
 
   <!-- Ask Atharva's AI Chatbot -->
   <script>
-  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="eTH5RxEZET5itESM37dLK";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    window.chatbaseConfig = {
+      chatbotId: "eTH5RxEZET5itESM37dLK",
+    };
+  </script>
+  <script
+    src="https://www.chatbase.co/embed.min.js"
+    id="eTH5RxEZET5itESM37dLK"
+    domain="www.chatbase.co"
+    defer>
   </script>
 </body>
 </html>
