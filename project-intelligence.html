@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Product Intelligence Platform | Atharva Pathak</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .pg{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
+    .hero-sec{padding:110px 0 24px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:.8rem;font-weight:600;color:var(--accent);padding:6px 14px;border-radius:8px;border:1px solid rgba(37,99,235,.16);background:rgba(255,255,255,.7);margin-bottom:16px;transition:background .2s,transform .2s}
+    .back-link:hover{background:var(--accent-soft);transform:translateX(-3px)}
+    .back-link svg{width:14px;height:14px}
+    .tag-label{display:inline-block;font-family:var(--font-sans);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);margin-bottom:12px}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:10px}
+    .hero-desc{font-size:.88rem;color:var(--muted);line-height:1.72;max-width:700px;margin-bottom:16px}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .hero-chips span{font-family:var(--font-sans);font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);color:var(--accent-strong)}
+
+    /* 3 distinct project blocks — vertical stack */
+    .projects-stack{display:flex;flex-direction:column;gap:24px;padding:28px 0 40px}
+
+    .proj-block{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-soft);overflow:hidden}
+    .proj-hd{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+    .proj-hd-ico{width:36px;height:36px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .proj-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.9rem;color:var(--text)}
+    .proj-hd p{font-size:.72rem;color:var(--faint);margin-top:1px}
+    .proj-body{padding:18px 20px}
+    .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+
+    /* 2-col inside project block */
+    .proj-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .proj-col h4{font-family:var(--font-sans);font-weight:700;font-size:.8rem;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .proj-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .proj-col ul li{font-size:.78rem;color:var(--muted);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+    .proj-col ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.42em}
+
+    /* Metrics row */
+    .proj-metrics{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+    .pm{padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:rgba(248,251,255,.6);display:flex;flex-direction:column;gap:2px;flex:1;min-width:120px}
+    .pm-val{font-family:var(--font-body);font-weight:700;font-size:.9rem;color:var(--accent)}
+    .pm-lbl{font-size:.65rem;color:var(--faint)}
+
+    /* Table inside project */
+    .proj-tbl-title{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:var(--text);margin:16px 0 8px}
+    table.proj-tbl{width:100%;border-collapse:collapse;font-size:.74rem;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .proj-tbl th{text-align:left;font-family:var(--font-body);font-size:.6rem;font-weight:500;color:var(--faint);padding:8px 10px;background:rgba(248,251,255,.8);border-bottom:2px solid var(--line-strong)}
+    .proj-tbl td{padding:8px 10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.73rem}
+    .proj-tbl td:first-child{color:var(--text);font-weight:500}
+    .proj-tbl .high{color:var(--success);font-weight:600}
+    .proj-tbl .med{color:#d97706;font-weight:600}
+
+    /* Bottom blocks */
+    .btm{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:clamp(50px,6vh,72px)}
+    .bk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow-soft)}
+    .bk-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+    .bk-ico{width:32px;height:32px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .bk-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.85rem;color:var(--text)}
+    .bk p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .bk ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .bk ul li{font-size:.78rem;color:var(--muted);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+    .bk ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.42em}
+    .bk ul.imp li::before{width:7px;height:7px;background:var(--success)}
+    .stk{width:100%;font-size:.78rem;border-collapse:collapse}
+    .stk td{padding:4px 0;vertical-align:top}.stk td:first-child{font-family:var(--font-sans);font-weight:600;color:var(--text-soft);padding-right:12px;white-space:nowrap;width:95px}.stk td:last-child{color:var(--muted)}
+
+    @media(max-width:1080px){.proj-cols{grid-template-columns:1fr}}
+    @media(max-width:768px){.hero-sec{padding:96px 0 20px}.btm{grid-template-columns:1fr}.proj-metrics{flex-direction:column}}
+  </style>
+</head>
+<body style="cursor:auto">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="noise-overlay"></div>
+  <nav class="navbar scrolled"><div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="logo-initials">AP</span><span class="logo-name">Atharva Pathak</span></a>
+    <ul class="nav-links"><li><a href="index.html#about" class="nav-link">About</a></li><li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li><li><a href="index.html#expertise" class="nav-link">Expertise</a></li><li><a href="index.html#projects" class="nav-link active">Projects</a></li><li><a href="index.html#experience" class="nav-link">Experience</a></li><li><a href="index.html#contact" class="nav-link">Contact</a></li></ul>
+    <a href="mailto:atharvapathak11@gmail.com" class="nav-cta">Get in touch &#8599;</a>
+  </div></nav>
+  <main>
+    <section class="hero-sec"><div class="pg">
+      <a href="index.html#projects" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>Back to Projects</a>
+      <div class="tag-label">Strategic Analytics</div>
+      <h1 class="hero-title">Product Intelligence Platform</h1>
+      <p class="hero-desc">A three-part intelligence system combining competitive web scraping, internal course performance rating, and strategic gap analysis &mdash; enabling data-driven decisions on pricing, syllabus design, and new program launches for the executive education business.</p>
+      <div class="hero-chips"><span>Web Scraping</span><span>Python</span><span>Power BI</span><span>Advanced Excel</span><span>Market Research</span><span>Gap Analysis</span></div>
+    </div></section>
+
+    <!-- 3 DISTINCT PROJECT BLOCKS — clearly separated -->
+    <div class="pg"><div class="projects-stack">
+
+      <!-- ═══ BLOCK 1: Competitive Web Scraping ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div><h3>Competitive Web Scraping</h3><p>External data &mdash; Understanding what competitors are doing</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Built a web scraping engine to extract competitor data from 8+ competitor websites. The scraped data covered course pricing, duration, syllabus structure, faculty details, and enrollment trends &mdash; giving the product team a clear picture of the competitive landscape.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> What I Built</h4>
+              <ul>
+                <li>Python scraping scripts using BeautifulSoup &amp; Selenium</li>
+                <li>Automated data extraction from 8+ competitor websites</li>
+                <li>Structured database of competitor pricing, duration, and syllabus</li>
+                <li>Competitor monitoring dashboard in Power BI</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> How It Was Used</h4>
+              <ul>
+                <li>Determined optimal pricing for new courses based on competitor benchmarks</li>
+                <li>Identified ideal course durations that competitors were offering</li>
+                <li>Mapped syllabus gaps &mdash; topics competitors covered that we didn't</li>
+                <li>Informed go-to-market strategy for new program launches</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">8+</div><div class="pm-lbl">Competitors tracked</div></div>
+            <div class="pm"><div class="pm-val">500+</div><div class="pm-lbl">Courses scraped</div></div>
+            <div class="pm"><div class="pm-val">Weekly</div><div class="pm-lbl">Refresh cadence</div></div>
+            <div class="pm"><div class="pm-val">6</div><div class="pm-lbl">New programs informed</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ BLOCK 2: Course Rating Model ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+          <div><h3>Course Rating Model</h3><p>Internal data &mdash; Evaluating our own course performance</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Developed a sophisticated course scoring model in Advanced Excel using 25 internal parameters. Each course was rated across Enrollments, Gross Sales Volume, Program Fees, Customer Acquisition Cost (CAC), Cost Per Lead (CPL), completion rates, NPS, and more &mdash; guiding investment and discontinuation decisions.</p>
+          <div class="proj-tbl-title">Course Rating Summary (Top Programs)</div>
+          <table class="proj-tbl">
+            <thead><tr><th>Program</th><th>Enrollments</th><th>Gross Sales</th><th>CAC</th><th>CPL</th><th>NPS</th><th>Rating</th></tr></thead>
+            <tbody>
+              <tr><td>Executive MBA</td><td>842</td><td>&#8377;12.4 Cr</td><td>&#8377;8,200</td><td>&#8377;1,450</td><td>72</td><td class="high">A+</td></tr>
+              <tr><td>Data Science Program</td><td>1,204</td><td>&#8377;9.8 Cr</td><td>&#8377;6,800</td><td>&#8377;980</td><td>68</td><td class="high">A+</td></tr>
+              <tr><td>Digital Marketing</td><td>687</td><td>&#8377;5.2 Cr</td><td>&#8377;7,100</td><td>&#8377;1,200</td><td>64</td><td class="high">A</td></tr>
+              <tr><td>Product Management</td><td>423</td><td>&#8377;4.1 Cr</td><td>&#8377;9,400</td><td>&#8377;1,680</td><td>58</td><td class="med">B+</td></tr>
+              <tr><td>Finance for Leaders</td><td>312</td><td>&#8377;3.6 Cr</td><td>&#8377;10,200</td><td>&#8377;1,920</td><td>52</td><td class="med">B</td></tr>
+            </tbody>
+          </table>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">25</div><div class="pm-lbl">Parameters scored</div></div>
+            <div class="pm"><div class="pm-val">120+</div><div class="pm-lbl">Courses rated</div></div>
+            <div class="pm"><div class="pm-val">Quarterly</div><div class="pm-lbl">Refresh cycle</div></div>
+            <div class="pm"><div class="pm-val">A+ to D</div><div class="pm-lbl">Rating scale</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ BLOCK 3: Gap Analysis Matrix ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></svg></div>
+          <div><h3>Gap Analysis Matrix</h3><p>Internal + External data &mdash; Finding strategic opportunities</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Combined internal course performance data (from the Rating Model) with external competitive data (from Web Scraping) to build a Program Matrix. This matrix identified white spaces &mdash; high-demand topics competitors offered that we didn't, underperforming courses that needed redesign, and pricing/duration mismatches vs. market standards.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> What It Identified</h4>
+              <ul>
+                <li>High-demand topics competitors offered that we didn't</li>
+                <li>Courses with high CAC but low enrollment &mdash; candidates for discontinuation</li>
+                <li>Pricing gaps where we were significantly above or below market</li>
+                <li>Duration mismatches vs. what the market was offering</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Decisions It Enabled</h4>
+              <ul>
+                <li>6 new programs launched based on white space identification</li>
+                <li>3 underperforming programs redesigned with updated syllabus</li>
+                <li>Pricing recalibrated for 15+ courses to match market positioning</li>
+                <li>Presented findings to Company MD and Senior Management</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">15%</div><div class="pm-lbl">Increase in product innovation</div></div>
+            <div class="pm"><div class="pm-val">6</div><div class="pm-lbl">New programs launched</div></div>
+            <div class="pm"><div class="pm-val">3</div><div class="pm-lbl">Programs redesigned</div></div>
+            <div class="pm"><div class="pm-val">15+</div><div class="pm-lbl">Courses repriced</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- Bottom 2x2 -->
+    <div class="pg"><div class="btm">
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Why I Built This</h3></div><p>The executive education market was evolving rapidly but decisions on pricing, syllabus, and new launches were based on intuition rather than data. We had no systematic way to monitor competitors, evaluate our own courses objectively, or identify strategic gaps.</p></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>What I Built</h3></div><ul><li>Web scraping engine for competitor monitoring (pricing, syllabus, duration)</li><li>Course Rating Model with 25 internal parameters in Advanced Excel</li><li>Program Gap Matrix combining internal + external intelligence</li><li>Dashboards and strategic presentations for leadership</li></ul></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>Tech Stack</h3></div><table class="stk"><tr><td>Scraping</td><td>Python (BeautifulSoup, Selenium)</td></tr><tr><td>Rating Model</td><td>Advanced Excel (25 parameters)</td></tr><tr><td>Visualization</td><td>Power BI, Strategic Presentations</td></tr><tr><td>Analysis</td><td>Gap Analysis, Competitor Mapping</td></tr><tr><td>Reporting</td><td>Decks for Company MD &amp; Leadership</td></tr></table></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Impact &amp; Outcomes</h3></div><ul class="imp"><li>15% increase in product innovation</li><li>6 new programs launched from gap analysis</li><li>3 underperforming programs redesigned</li><li>15+ courses repriced based on market data</li><li>Insights presented to Company MD and Senior Management</li></ul></div>
+    </div></div>
+  </main>
+  <footer class="footer"><div class="footer-inner"><p class="footer-copy">&copy; 2026 Atharva Pathak.</p><a href="index.html" class="back-top">Back to Home &uarr;</a></div></footer>
+  <button class="back-to-top-float" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <script>var sp=document.getElementById("scrollProgress");window.addEventListener("scroll",function(){if(!sp)return;var h=document.documentElement.scrollHeight-window.innerHeight;sp.style.width=h>0?(window.scrollY/h)*100+"%":"0%"},{passive:true});var btt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(btt)btt.classList.toggle("visible",window.scrollY>400)},{passive:true});if(btt)btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});</script>
+</body>
+</html>

@@ -1,338 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Atharva-Pathak-Portfolio</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
-        <!-- Third party plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-          <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atharva Pathak | Business Intelligence & Data Engineering</title>
+  <meta name="description" content="Atharva Pathak — Deputy Manager, Business Intelligence at Polycab India. Enterprise analytics, data engineering, AI-enabled solutions." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Atharva Pathak | Business Intelligence & Data Engineering" />
+  <meta property="og:description" content="Enterprise analytics, data engineering, AI-enabled solutions — Deputy Manager BI at Polycab India." />
+  <meta property="og:image" content="profile.jpg" />
+  <meta property="og:url" content="https://atharva-pathak.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="preloader" id="preloader"><div class="preloader-logo">AP</div></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="noise-overlay"></div>
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#about" class="nav-link">About</a><a href="#techstack" class="nav-link">Tech Stack</a><a href="#expertise" class="nav-link">Expertise</a><a href="#projects" class="nav-link">Projects</a><a href="#experience" class="nav-link">Experience</a><a href="#contact" class="nav-link">Contact</a>
+    <a href="mailto:atharvapathak11@gmail.com" class="nav-cta">Get in touch &#8599;</a>
+  </nav>
+  <nav class="navbar" id="navbar"><div class="nav-inner">
+    <a href="#home" class="nav-logo"><span class="logo-initials">AP</span><span class="logo-name">Atharva Pathak</span></a>
+    <ul class="nav-links"><li><a href="#about" class="nav-link">About</a></li><li><a href="#techstack" class="nav-link">Tech Stack</a></li><li><a href="#expertise" class="nav-link">Expertise</a></li><li><a href="#projects" class="nav-link">Projects</a></li><li><a href="#experience" class="nav-link">Experience</a></li><li><a href="#contact" class="nav-link">Contact</a></li></ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a href="mailto:atharvapathak11@gmail.com" class="nav-cta">Get in touch &#8599;</a>
+  </div></nav>
+  <header class="hero" id="home">
+    <div class="glow glow-a"></div><div class="glow glow-b"></div>
+    <div class="hero-container">
+      <div class="hero-top-row">
+        <div class="hero-copy">
+          <div class="hero-label reveal"><span class="label-dot"></span> Deputy Manager &middot; Business Intelligence &middot; Mumbai</div>
+          <h1 class="hero-heading reveal" style="--delay:.1s">Building<br/><em>enterprise analytics,</em><br/>modern data platforms<br/><span class="heading-accent">&amp; AI-enabled<br/>solutions.</span></h1>
+          <p class="hero-sub reveal" style="--delay:.22s">I work at the intersection of business intelligence, data engineering, and automation &mdash; turning complex data into decision-ready insights, scalable reporting systems, and high-impact digital solutions for leadership teams.</p>
+          <div class="hero-actions reveal" style="--delay:.34s"><a href="#projects" class="btn btn-primary">View Projects</a><a href="#contact" class="btn btn-ghost">Let&#8217;s connect &darr;</a></div>
+        </div>
+        <div class="hero-right-col">
+          <div class="hero-photo-wrap reveal" style="--delay:.2s"><div class="photo-ring"><img src="profile.jpg" alt="Atharva Pathak" class="hero-photo"/></div></div>
+          <div class="growth-chart" id="growthChart"><div class="gc-bar" style="--h:30%;--d:.35s"></div><div class="gc-bar" style="--h:48%;--d:.5s"></div><div class="gc-bar" style="--h:58%;--d:.65s"></div><div class="gc-bar" style="--h:72%;--d:.8s"></div><div class="gc-bar gc-accent" style="--h:92%;--d:.95s"></div></div>
+        </div>
+      </div>
+      <!-- ANIMATED COUNTER METRICS -->
+      <div class="hero-metrics reveal" style="--delay:.46s">
+        <div class="metric"><span class="metric-key"><span class="counter" data-target="4">0</span><span class="counter-suffix">+</span></span><span class="metric-val">Years of experience</span></div><div class="metric-sep"></div>
+        <div class="metric"><span class="metric-key"><span class="counter" data-target="10">0</span><span class="counter-suffix">+</span></span><span class="metric-val">Dashboards delivered</span></div><div class="metric-sep"></div>
+        <div class="metric"><span class="metric-key"><span class="counter" data-target="4">0</span><span class="counter-suffix">+</span></span><span class="metric-val">Industries served</span></div><div class="metric-sep"></div>
+        <div class="metric"><span class="metric-key"><span class="counter" data-target="20">0</span><span class="counter-suffix">+</span></span><span class="metric-val">Tools &amp; platforms</span></div>
+      </div>
+    </div>
+    <div class="marquee-wrap"><div class="marquee-track"><span>Power BI</span><span class="dot">&middot;</span><span>Azure Synapse</span><span class="dot">&middot;</span><span>Databricks</span><span class="dot">&middot;</span><span>Azure Data Factory</span><span class="dot">&middot;</span><span>SQL Server</span><span class="dot">&middot;</span><span>Python</span><span class="dot">&middot;</span><span>Apache Spark</span><span class="dot">&middot;</span><span>ETL / ELT</span><span class="dot">&middot;</span><span>Copilot Studio</span><span class="dot">&middot;</span><span>DAX</span><span class="dot">&middot;</span><span>Power Automate</span><span class="dot">&middot;</span><span>Power BI</span><span class="dot">&middot;</span><span>Azure Synapse</span><span class="dot">&middot;</span><span>Databricks</span><span class="dot">&middot;</span><span>Azure Data Factory</span><span class="dot">&middot;</span><span>SQL Server</span><span class="dot">&middot;</span><span>Python</span><span class="dot">&middot;</span><span>Apache Spark</span><span class="dot">&middot;</span><span>ETL / ELT</span><span class="dot">&middot;</span></div></div>
+  </header>
+  <main>
+    <section class="section" id="about"><div class="section-container"><div class="about-layout"><div class="about-left"><p class="section-eyebrow reveal">About</p><h2 class="section-title reveal" style="--delay:.08s">A business-aligned analytics profile</h2></div><div class="about-right"><p class="about-lead reveal" style="--delay:.16s">I am a Business Intelligence and Data Engineering professional with hands-on experience in enterprise reporting, analytics automation, backend data orchestration, AI-assisted solutions, and stakeholder-facing dashboard delivery.</p><p class="about-body reveal" style="--delay:.24s">My work focuses on enabling faster decisions, improving process visibility, and building scalable analytics capabilities for business teams at every level &mdash; from operational managers to C-suite leaders.</p><div class="about-tags reveal" style="--delay:.32s"><span class="tag">Enterprise BI</span><span class="tag">Data Engineering</span><span class="tag">AI Enablement</span><span class="tag">Stakeholder Reporting</span><span class="tag">Process Automation</span><span class="tag">Cloud Analytics</span></div></div></div></div></section>
 
+    <!-- TECH STACK ICON GRID -->
+    <section class="section section-alt" id="techstack">
+      <div class="section-container">
+        <div class="section-head reveal"><p class="section-eyebrow">Tech Stack</p><h2 class="section-title" style="--delay:.08s">Tools I work with<br/><em>every day</em></h2></div>
+        <div class="tech-grid reveal" style="--delay:.16s">
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/><span>Python</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"/><span>Azure</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server"/><span>SQL Server</span></div>
+          <div class="tech-item"><img src="https://img.icons8.com/color/48/power-bi-2021.png" alt="Power BI"/><span>Power BI</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg" alt="Spark"/><span>Spark</span></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks"/><span>Databricks</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R"/><span>R</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"/><span>MySQL</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"/><span>Oracle</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"/><span>Django</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"/><span>Linux</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"/><span>HTML</span></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/tableau/E97627" alt="Tableau"/><span>Tableau</span></div>
+          <div class="tech-item"><img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="Excel"/><span>Excel</span></div>
+          <div class="tech-item"><img src="https://img.icons8.com/color/48/google-analytics.png" alt="GA4"/><span>GA4</span></div>
+          <div class="tech-item"><img src="https://img.icons8.com/color/48/salesforce.png" alt="Salesforce"/><span>Salesforce</span></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/adobe/FF0000" alt="Adobe Analytics"/><span>Adobe Analytics</span></div>
+          <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/><span>Git</span></div>
+        </div>
+      </div>
+    </section>
 
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-fixed-top fixed-top fixed-nav-bar" id="mainNav">
-            <div class="container">
+    <!-- EXPERTISE (6 cards from resume) -->
+    <section class="section" id="expertise"><div class="section-container"><div class="section-head reveal"><p class="section-eyebrow">Core Expertise</p><h2 class="section-title" style="--delay:.08s">Where technology meets<br/><em>business outcomes</em></h2></div><div class="expertise-grid">
+      <article class="expertise-card reveal" style="--delay:.04s"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3>Business Intelligence &amp; Visualization</h3><p>Executive dashboards, KPI storytelling, single-source-of-truth reporting, and governed analytics for CXO-level decision-making.</p><ul class="card-pills"><li>Power BI</li><li>Tableau</li><li>MicroStrategy</li><li>Looker Studio</li><li>SSRS</li><li>DAX</li></ul></article>
+      <article class="expertise-card reveal" style="--delay:.1s"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3>Data Engineering &amp; Cloud</h3><p>End-to-end ETL/ELT pipelines, high-frequency data refreshes on large-scale transactional datasets, and cloud-native data orchestration.</p><ul class="card-pills"><li>Azure Synapse</li><li>ADF</li><li>Databricks</li><li>Data Lake</li><li>SSIS</li><li>Spark</li></ul></article>
+      <article class="expertise-card reveal" style="--delay:.16s"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div><h3>AI, ML &amp; Automation</h3><p>Generative AI models, NLP-driven sentiment analysis, predictive modeling, AI-powered Copilot agents, and natural-language-to-SQL conversion.</p><ul class="card-pills"><li>Copilot Studio</li><li>NLP</li><li>GenAI</li><li>Predictive Modeling</li><li>Power Automate</li></ul></article>
+      <article class="expertise-card reveal" style="--delay:.22s"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"/><path d="M21 3v6h-6"/></svg></div><h3>Product &amp; Marketing Analytics</h3><p>Campaign performance, customer behavior analysis, market research, competitive intelligence, and web/app analytics for growth and ROI measurement.</p><ul class="card-pills"><li>GA4</li><li>Adobe Analytics</li><li>Appsflyer</li><li>Salesforce</li><li>WebEngage</li></ul></article>
+      <article class="expertise-card reveal" style="--delay:.28s"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3>Programming &amp; Databases</h3><p>Backend development, advanced SQL querying, data manipulation, scripting, and database architecture across enterprise RDBMS systems.</p><ul class="card-pills"><li>Python</li><li>R</li><li>SQL</li><li>Django</li><li>MySQL</li><li>Oracle</li><li>SQL Server</li></ul></article>
+      <article class="expertise-card reveal" style="--delay:.34s"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Governance &amp; Strategy</h3><p>Stakeholder management, UAT sign-offs, production readiness, data governance, RLS implementation, and cross-functional analytics ownership.</p><ul class="card-pills"><li>Stakeholder Mgmt</li><li>UAT</li><li>RLS</li><li>Data Governance</li><li>Project Ownership</li></ul></article>
+    </div></div></section>
 
-                <a class="navbar-brand js-scroll-trigger" href="#page-top" style="color:#f4623a"><b>ATHARVA PATHAK</b></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" 
-                aria-label="Toggle navigation">
-                Menu
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about" style="color: #f4623a;">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects" style="color: #f4623a;">Projects</a></li>
-                        
-                        <li class="nav-item"><a class="nav-link " href="Resume/Atharva_Pathak CV.pdf" target="_blank" style="color: #f4623a;">Resume</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" style="color: #f4623a;">Contact</a></li>
-                    </ul>
-                </div>
-                
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            
-            <div class="container h-100">
-                <div id="particles-js">
-            </div>    
-                <div class="textlanding">
-                <div class="row align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-white font-weight-bold">Hi! I'm Atharva</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Hand crafted for you, thank you for visiting.</p>
-                        <h5>"Tell me and I forget.  Teach me and I remember.  Involve me and I learn."</h5>
-                        <hr class="divider my-4"/>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </header>
-        <!-- About-->
-        <section class="page-section" id="about">
-            <h2 style="color: white"><b>TI</b></h2>   
-        </section>
+    <!-- PROJECTS (unchanged) -->
+    <section class="section section-alt" id="projects"><div class="section-container"><div class="section-head reveal"><p class="section-eyebrow">Featured Work</p><h2 class="section-title" style="--delay:.08s">Selected solution areas<br/><em>&amp; initiatives</em></h2><p class="section-subtext reveal" style="--delay:.16s">Click any project to view the full case study.</p></div><div class="projects-grid">
+      <a href="project-cxo.html" class="project-card project-featured reveal" style="--delay:.04s"><div class="project-top"><span class="project-label">Executive Analytics</span><span class="project-arrow">&#8599;</span></div><h3>CXO Dashboard Suite</h3><p>Built leadership-focused dashboards for performance, operations, and strategic decision-making.</p><div class="project-chips"><span>Power BI</span><span>SQL</span><span>Executive Reporting</span><span>DAX</span></div><span class="project-cta">View case summary &rarr;</span></a>
+      <a href="project-copilot.html" class="project-card reveal" style="--delay:.1s"><div class="project-top"><span class="project-label">AI Enablement</span><span class="project-arrow">&#8599;</span></div><h3>AI Sales Copilot</h3><p>AI assistant for governed conversational access to live metrics.</p><div class="project-chips"><span>Copilot</span><span>SQL</span><span>Automation</span></div><span class="project-cta">View case summary &rarr;</span></a>
+      <a href="project-automation.html" class="project-card reveal" style="--delay:.14s"><div class="project-top"><span class="project-label">Process Efficiency</span><span class="project-arrow">&#8599;</span></div><h3>Analytics Automation</h3><p>Automated reporting workflows using pipelines and structured delivery.</p><div class="project-chips"><span>ADF</span><span>Pipelines</span><span>Ops Reporting</span></div><span class="project-cta">View case summary &rarr;</span></a>
+      <a href="project-genai.html" class="project-card reveal" style="--delay:.18s"><div class="project-top"><span class="project-label">AI &amp; Machine Learning</span><span class="project-arrow">&#8599;</span></div><h3>GenAI &amp; NLP Engine</h3><p>Built Generative AI models including Speech-to-Text, sentiment analysis, and course recommendation — achieving 25% reduction in processing time.</p><div class="project-chips"><span>NLP</span><span>GenAI</span><span>Python</span><span>Sentiment Analysis</span></div><span class="project-cta">View case summary &rarr;</span></a>
+      <a href="project-retention.html" class="project-card reveal" style="--delay:.22s"><div class="project-top"><span class="project-label">Customer Analytics</span><span class="project-arrow">&#8599;</span></div><h3>Customer Analytics &amp; Retention</h3><p>Python-based customer behavior analysis driving 10% retention improvement and 15% reduction in acquisition costs across brand campaigns.</p><div class="project-chips"><span>Python</span><span>MicroStrategy</span><span>Excel</span><span>KPI Monitoring</span></div><span class="project-cta">View case summary &rarr;</span></a>
+      <a href="project-intelligence.html" class="project-card reveal" style="--delay:.26s"><div class="project-top"><span class="project-label">Strategic Analytics</span><span class="project-arrow">&#8599;</span></div><h3>Product Intelligence Platform</h3><p>Competitive intelligence through web scraping, market research, and course rating models — driving 15% increase in product innovation.</p><div class="project-chips"><span>Web Scraping</span><span>Power BI</span><span>Excel</span><span>Market Research</span></div><span class="project-cta">View case summary &rarr;</span></a>
+    </div>
+        </div></div></section>
 
-        <section  class="page-section bg-primary" style="height: 110%;">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <img src="img/Profile_Pic.jpg" class="img-responsive" alt="" style="margin :auto;" height="272" width="272">
-                        <hr class="divider my-4" />
-                        <p class="text-center mt-0s" style="color: white">I'm motivated by the belief that every data has a story, it relies on you to give them a voice. I'm adept at using technologies like AWS, Django, Python, Machine Learning, Tableau to use data efficiently. Prominent knowledge in software development life cycle and data analysis to achieve business objectives.
-                            <br> <br> I'm happy working alone with my head stuck in numbers or as a part of a productive team. I intend to narrow my interest and deepen my knowledge in Enterprise Operations. I have developed several projects using state of the art technologies for providing customer-centric results.<br>
+    <!-- EXPERIENCE — Nokia Lumia 3D Tile Flip -->
+    <section class="section" id="experience">
+      <div class="section-container">
+        <div class="section-head reveal"><p class="section-eyebrow">Experience</p><h2 class="section-title" style="--delay:.08s">Professional snapshot</h2><p class="section-subtext reveal" style="--delay:.16s">Click any role to explore details.</p></div>
+        <div class="timeline" id="timeline">
+          <div class="tl-item reveal" style="--delay:.1s">
+            <div class="tl-dot-wrap"><div class="tl-dot active-dot"></div></div>
+            <div class="tl-card"><div class="tl-card-top"><div class="tl-logo">P</div><div class="tl-info"><h3 class="tl-company">Polycab India Limited</h3><p class="tl-role">Deputy Manager &mdash; Business Intelligence</p></div><span class="tl-badge-active">&#9679; Active</span><span class="tl-expand-icon">+</span></div><div class="tl-meta"><span class="tl-date">Mar 2025 &ndash; Present</span><span class="tl-loc">Mumbai, India</span></div></div>
+            <div class="tl-details"><div class="tl-details-inner"><ul class="tl-bullets">
+              <li>Owned CXO-level Power BI dashboards as the single source of truth for Pan-India Sales Incentive payouts and Marketing ROI decisions.</li>
+              <li>Led end-to-end data engineering pipelines using Azure Data Factory, Data Lake, Databricks, and Azure Synapse for reliable high-frequency refreshes.</li>
+              <li>Implemented WhatsApp-based analytics automation delivering daily sales updates and real-time dashboard status to top management.</li>
+              <li>Developed an AI-powered Sales Copilot converting natural-language queries into optimized SQL for self-service analytics.</li>
+              <li>Single point of ownership for analytics across Sales &amp; Marketing, driving governance, UAT, and production readiness.</li>
+              <li>Optimized Power BI data models, DAX calculations, and backend queries for CXO-level performance.</li>
+            </ul></div></div>
+          </div>
+          <div class="tl-item reveal" style="--delay:.18s">
+            <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+            <div class="tl-card"><div class="tl-card-top"><div class="tl-logo">T</div><div class="tl-info"><h3 class="tl-company">Times Group</h3><p class="tl-role">Product Analyst</p></div><span class="tl-expand-icon">+</span></div><div class="tl-meta"><span class="tl-date">Apr 2023 &ndash; Feb 2025</span><span class="tl-loc">Mumbai, India</span></div></div>
+            <div class="tl-details"><div class="tl-details-inner"><ul class="tl-bullets">
+              <li>Developed Generative AI models including Speech-to-Text, price prediction, and Course Recommendation, achieving 25% reduction in processing time.</li>
+              <li>Engineered an NLP model processing user reviews across platforms, generating sentiment scores for user personas.</li>
+              <li>Crafted impactful Power BI and Advanced Excel visualizations presented to Company MD and Senior Management.</li>
+              <li>Implemented web scraping to extract competitor insights, delivering strategic dashboards and presentations.</li>
+              <li>Built a Course Rating model evaluating Enrollments, Gross Sales, Program Fees, CAC, and CPL.</li>
+              <li>Conducted market research resulting in 15% increase in product innovation.</li>
+            </ul></div></div>
+          </div>
+          <div class="tl-item reveal" style="--delay:.26s">
+            <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+            <div class="tl-card"><div class="tl-card-top"><div class="tl-logo">e</div><div class="tl-info"><h3 class="tl-company">eClerx</h3><p class="tl-role">Senior Data Analyst</p></div><span class="tl-expand-icon">+</span></div><div class="tl-meta"><span class="tl-date">Jan 2022 &ndash; Mar 2023</span><span class="tl-loc">Mumbai, India</span></div></div>
+            <div class="tl-details"><div class="tl-details-inner"><ul class="tl-bullets">
+              <li>Engineered an end-to-end model calculating marketing collaterals, user metrics, installations, dormant users, and net sales.</li>
+              <li>Formulated business review reports driving 20% upsurge in client satisfaction with actionable recommendations.</li>
+              <li>Automated PowerPoint into Power BI dashboards, enhancing stakeholder engagement and comprehension.</li>
+              <li>Employed Python for customer behavior analysis &mdash; 10% retention improvement, 15% reduction in acquisition costs.</li>
+              <li>Monitored sales and customer KPIs achieving 12% revenue surge and 7% satisfaction improvement.</li>
+            </ul></div></div>
+          </div>
+          <div class="tl-item reveal" style="--delay:.34s">
+            <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+            <div class="tl-card"><div class="tl-card-top"><div class="tl-logo">i2</div><div class="tl-info"><h3 class="tl-company">I2E Consulting</h3><p class="tl-role">Django Developer</p></div><span class="tl-expand-icon">+</span></div><div class="tl-meta"><span class="tl-date">Jul 2021 &ndash; Jan 2022</span><span class="tl-loc">Mumbai, India</span></div></div>
+            <div class="tl-details"><div class="tl-details-inner"><ul class="tl-bullets">
+              <li>Developed back-end components improving responsiveness, integrating user-facing elements into applications.</li>
+              <li>Designed database architecture with tables, relationships, and stored procedures using Django ORM.</li>
+              <li>Independently designed the complete Document Workflow and created backend APIs.</li>
+              <li>Used Python and Django to interface with jQuery UI for content storage and deletion workflows.</li>
+            </ul></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                            <b>***** <u> <i style="color: black;">Key Skills</i> </u> *****</b> <br>
-                            
-                            <b style="color: black;">
-                                Data Analysis | KPI Dashboard | Business analysis | Machine Learning |
-    Business Intelligence | Extract, Transform, Load | Text Analysis | AWS Cloud Computing | SQL | python | Django | java | MS Excel | Tableau |
-    Web Development | Technical Documentation| Team | PowerBI | Linux | Search Engine Optimization |
-    Management & Leadership | Problem Solving | Analytical Thinking | Communication | Stakeholder Analysis |</b>
-                            
-                        </p>
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-        
+    <!-- CONTACT — Updated with personal email + phone -->
+    <section class="section section-alt" id="contact"><div class="section-container"><div class="contact-layout"><div class="contact-left reveal"><p class="section-eyebrow">Contact</p><h2 class="contact-title">Let&#8217;s<br/><em>connect.</em></h2><p class="contact-sub">Interested in BI, analytics, data engineering, or AI? I&#8217;d love to hear from you.</p></div><div class="contact-right reveal" style="--delay:.14s">
+      <a href="mailto:atharvapathak11@gmail.com" class="contact-item"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div class="ci-text"><span class="ci-label">Email</span><span class="ci-val">atharvapathak11@gmail.com</span></div><span class="ci-arrow">&#8599;</span></a>
+      <a href="tel:+919833572446" class="contact-item"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="ci-text"><span class="ci-label">Phone</span><span class="ci-val">+91-9833572446</span></div><span class="ci-arrow">&#8599;</span></a>
+      <a href="https://github.com/atharva96" class="contact-item" target="_blank"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85 0 1.7.114 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div class="ci-text"><span class="ci-label">GitHub</span><span class="ci-val">github.com/atharva96</span></div><span class="ci-arrow">&#8599;</span></a>
+      <a href="https://www.linkedin.com/in/atharvapathak11/" class="contact-item" target="_blank"><div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div><div class="ci-text"><span class="ci-label">LinkedIn</span><span class="ci-val">linkedin.com/in/atharvapathak11</span></div><span class="ci-arrow">&#8599;</span></a>
+    </div></div></div></section>
+  </main>
+  <footer class="footer"><div class="footer-inner"><p class="footer-copy">&copy; 2026 Atharva Pathak.</p><a href="#home" class="back-top">Back to top &uarr;</a></div></footer>
+  <button class="back-to-top-float" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
 
+  <script>
+    /* ═══ PRELOADER ═══ */
+    window.addEventListener("load",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("loaded")},800);setTimeout(function(){var c=document.getElementById("growthChart");if(c)c.classList.add("animate")},1200)});
 
+    /* ═══ SCROLL PROGRESS ═══ */
+    var sp=document.getElementById("scrollProgress");
+    window.addEventListener("scroll",function(){if(!sp)return;var h=document.documentElement.scrollHeight-window.innerHeight;sp.style.width=h>0?(window.scrollY/h)*100+"%":"0%"},{passive:true});
 
-        <section class="page-section" id="projects">
-           <h2 class="text-center mt-0" > 
-           </h2> 
-        </section>
+    /* ═══ FLOATING BACK-TO-TOP ═══ */
+    var btt=document.getElementById("backToTop");
+    window.addEventListener("scroll",function(){if(btt)btt.classList.toggle("visible",window.scrollY>500)},{passive:true});
+    if(btt)btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
 
+    /* ═══ HAMBURGER MENU ═══ */
+    (function(){var btn=document.getElementById("hamburger"),nav=document.getElementById("mobileNav"),ov=document.getElementById("mobileOverlay");if(!btn||!nav||!ov)return;function toggle(){btn.classList.toggle("active");nav.classList.toggle("open");ov.classList.toggle("show");document.body.style.overflow=nav.classList.contains("open")?"hidden":""}btn.addEventListener("click",toggle);ov.addEventListener("click",toggle);nav.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){if(nav.classList.contains("open"))toggle()})})})();
 
+    /* ═══ ANIMATED COUNTERS ═══ */
+    (function(){
+      var counters=document.querySelectorAll(".counter");
+      var animated=false;
+      function animateCounters(){
+        if(animated)return;
+        animated=true;
+        counters.forEach(function(el){
+          var target=parseInt(el.getAttribute("data-target"),10);
+          var duration=1600;
+          var start=performance.now();
+          function step(now){
+            var elapsed=now-start;
+            var progress=Math.min(elapsed/duration,1);
+            /* easeOutExpo for a snappy deceleration */
+            var ease=1-Math.pow(2,-10*progress);
+            el.textContent=Math.round(target*ease);
+            if(progress<1) requestAnimationFrame(step);
+            else el.textContent=target;
+          }
+          requestAnimationFrame(step);
+        });
+      }
+      /* Trigger when hero-metrics scrolls into view */
+      var metricsEl=document.querySelector(".hero-metrics");
+      if(metricsEl){
+        var io=new IntersectionObserver(function(entries){
+          if(entries[0].isIntersecting){animateCounters();io.disconnect()}
+        },{threshold:0.5});
+        io.observe(metricsEl);
+      }
+    })();
 
-        <section class="page-section bg-dark">
-            <h2 class="text-center mt-0" style="color:#f4623a;"><b>PROJECTS</b></h2>
-    
-        </section>
-        <!-- Portfolio-->
-        <section class="content-section">
-        
-            <div class="container-fluid p-0">
-                <div class="row no-gutters">
+    /* ═══ CURSOR ═══ */
+    var dot=document.getElementById("cursorDot"),ring=document.getElementById("cursorRing"),mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;if(dot)dot.style.transform="translate("+mx+"px,"+my+"px)"});
+    (function lp(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;if(ring)ring.style.transform="translate("+rx+"px,"+ry+"px)";requestAnimationFrame(lp)})();
+    document.querySelectorAll("a,button").forEach(function(el){el.addEventListener("mouseenter",function(){if(ring)ring.classList.add("ring-hover")});el.addEventListener("mouseleave",function(){if(ring)ring.classList.remove("ring-hover")})});
 
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="cloud.html">
-                            <img class="img-fluid" src="assets/img/cloud.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2">Cloud Computing</div>
-                                        <div class="project-name">Assimilation of ML and Cloud Computing</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
+    /* ═══ REVEAL ON SCROLL ═══ */
+    var obs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(function(el){obs.observe(el)});
 
+    /* ═══ NAVBAR SCROLL ═══ */
+    var nb=document.getElementById("navbar");window.addEventListener("scroll",function(){if(nb)nb.classList.toggle("scrolled",scrollY>60)},{passive:true});
 
-                    
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="t-SNE.html">
-                            <img class="img-fluid" src="assets/img/t-SNE-index.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2" style="color: white;">Unsupervised Machine Learning</div>
-                                        <div class="project-name" style="color: white;">Clustering and Dimension Reduction</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
+    /* ═══ ACTIVE NAV LINK ═══ */
+    var ss=document.querySelectorAll("section[id],header[id]"),nl=document.querySelectorAll(".nav-links .nav-link");
+    var n2=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){nl.forEach(function(l){l.classList.remove("active")});var a=document.querySelector('.nav-links .nav-link[href="#'+e.target.id+'"]');if(a)a.classList.add("active")}})},{threshold:.45});
+    ss.forEach(function(s){n2.observe(s)});
 
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="churn.html">
-                            <img class="img-fluid" src="assets/img/churn-index.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2" style="color: black;">Machine Learning</div>
-                                        <div class="project-name" style="color: black;">Employee Churn Prediction</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-
-                    
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="market_ana.html">
-                            <img class="img-fluid" src="assets/img/market_ana.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2" style="color: white;">Tableau</div>
-                                        <div class="project-name" style="color: white;">Market analysis for Business Opportunities</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-   
-
-                    
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="youtube.html">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/nlp.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2">Python Application</div>
-                                        <div class="project-name">Youtube Audio Downloader</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-                    
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="shiny.html">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/shiny.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2" style="color: white;">R Shiny Application</div>
-                                        <div class="project-name" style="color: white;">Statistical and Machine Learning Application</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="text.html">
-                            <img class="img-fluid" src="assets/img/nlp.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2">Natural Language Processing</div>
-                                        <div class="project-name">Medicine Consumer Review: Sentiment Analysis</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="forbes.html">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/bi.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2" style="color: white;">Business Intelligence</div>
-                                        <div class="project-name" style="color: white;">Forbes Top 2000 Companies</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-item" href="generate.html">
-                            <img class="img-fluid" src="assets/img/indextext.jpg" alt="" />
-                            <div class="portfolio-box-caption">
-                                <div class="caption">
-                                    <div class="caption-content">
-                                        <div class="h2">Text Mining</div>
-                                        <div class="project-name">Video to Multilingual Text Generator</div>
-                                      </div>
-                                </div>
-                            </div>   
-                        </a>
-                    </div>
-
-
-                </div>
-            </div>    
-        </section>
-
-        <section class="page-section" id="portfolio">
-            <div class="container">
-                <h1 class="text-center mt-0"></h1>
-                <br>
-        </section>
-
-
-        <!-- Call to action-->
-        <section class="page-section bg-dark" id="contact">
-            <h2 class="text-center mt-0" style="color:#f4623a;">GET IN TOUCH</h2>
-        </section>
-
-
-        <!-- Contact-->
-        <section class="page-section">
-            <div class="container">
-                <div class = "row">
-                    
-                        <div class="col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">
-                                <div class="medium">
-                                    <i class="iconify" data-icon="bx:bx-phone-call" data-inline="false"></i>
-                                </div>
-                                <p style="color:#f4623a;">(IRL)+353 899691716 (IND)+91-9833572446</p>
-                            </div>    
-                        </div>
-                    
-    
-                    
-                        <div class = "col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">  
-                                <div class="medium"><i class="iconify" data-icon="akar-icons:github-fill" data-inline="false"></i>
-                                </div> 
-                                <p></p>
-                                <a class="d-block" href="https://github.com/Atharva96" target="=_blank">GitHub</a>
-                            </div>
-                        </div>
-                    
-    
-                    
-                        <div class="col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">
-                                <div class="medium">
-                                    <i class="iconify" data-icon="brandico:linkedin-rect" data-inline="false"></i> 
-                                </div>
-                                <p></p>
-                                <a class="d-block" href="https://www.linkedin.com/in/atharvapathak11/" target="_blank">LinkedIn</a>
-                            </div>
-                        </div>
-                    
-    
-                    
-                        <div class="col-lg-3 col-md-6 text-center">
-                            <div class="mt-5">
-                                <div class="large">
-                                    <i class="iconify" data-icon="fluent:mail-48-filled" data-inline="false"></i>
-                                </div>
-                                <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                                <a class="d-block" href="https://gmail.com" target="_blank">atharvapathak11@.com</a>
-                            </div>
-                        </div>
-                                      
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-dark">
-            <p class="text-center mt-0"><b><i>Would be delighted for any suggetions.</i></b></p>
-        </section>
-        <!-- Bootstrap core JS-->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-        
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="js/particles.js"></script>
-        <script src="js/appHome.js"></script>
-    </body>
+    /* ═══ NOKIA LUMIA 3D TILE FLIP ═══ */
+    (function(){var tl=document.getElementById("timeline");if(!tl)return;var items=[].slice.call(tl.querySelectorAll(".tl-item"));var STAGGER=80,busy=false;items.forEach(function(item){item.querySelector(".tl-card").addEventListener("click",function(){if(busy)return;busy=true;var isOpen=item.classList.contains("tl-open");var others=items.filter(function(o){return o!==item});if(isOpen){item.classList.remove("tl-open");others.forEach(function(o){o.classList.remove("flip-hidden");o.style.position="";o.style.left="";o.style.visibility=""});requestAnimationFrame(function(){requestAnimationFrame(function(){others.forEach(function(o,i){o.style.transitionDelay=(i*STAGGER)+"ms";o.classList.remove("flip-away");o.classList.remove("flip-away-rev")});var last=others[others.length-1];var done=function(e){if(e.propertyName!=="transform")return;last.removeEventListener("transitionend",done);others.forEach(function(o){o.style.transitionDelay=""});busy=false};last.addEventListener("transitionend",done);setTimeout(function(){busy=false},800)})});}else{item.classList.add("tl-open");others.forEach(function(o,i){o.style.transitionDelay=(i*STAGGER)+"ms";o.classList.add(i%2===0?"flip-away":"flip-away-rev")});var last=others[others.length-1];var done=function(e){if(e.propertyName!=="transform")return;last.removeEventListener("transitionend",done);others.forEach(function(o){o.style.transitionDelay="";o.classList.add("flip-hidden")});busy=false};last.addEventListener("transitionend",done);setTimeout(function(){others.forEach(function(o){o.style.transitionDelay="";if(!o.classList.contains("flip-hidden"))o.classList.add("flip-hidden")});busy=false},800);}})})})();
+  </script>
+</body>
 </html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>GenAI & NLP Engine | Atharva Pathak</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .pg{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
+    .hero-sec{padding:110px 0 24px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:.8rem;font-weight:600;color:var(--accent);padding:6px 14px;border-radius:8px;border:1px solid rgba(37,99,235,.16);background:rgba(255,255,255,.7);margin-bottom:16px;transition:background .2s,transform .2s}
+    .back-link:hover{background:var(--accent-soft);transform:translateX(-3px)}
+    .back-link svg{width:14px;height:14px}
+    .tag-label{display:inline-block;font-family:var(--font-sans);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);margin-bottom:12px}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:10px}
+    .hero-desc{font-size:.88rem;color:var(--muted);line-height:1.72;max-width:700px;margin-bottom:16px}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .hero-chips span{font-family:var(--font-sans);font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);color:var(--accent-strong)}
+
+    .projects-stack{display:flex;flex-direction:column;gap:24px;padding:28px 0 40px}
+    .proj-block{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-soft);overflow:hidden}
+    .proj-hd{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+    .proj-hd-ico{width:36px;height:36px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .proj-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.9rem;color:var(--text)}
+    .proj-hd p{font-size:.72rem;color:var(--faint);margin-top:1px}
+    .proj-body{padding:18px 20px}
+    .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+    .proj-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .proj-col h4{font-family:var(--font-sans);font-weight:700;font-size:.8rem;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .proj-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .proj-col ul li{font-size:.78rem;color:var(--muted);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+    .proj-col ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.42em}
+    .proj-metrics{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+    .pm{padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:rgba(248,251,255,.6);display:flex;flex-direction:column;gap:2px;flex:1;min-width:120px}
+    .pm-val{font-family:var(--font-body);font-weight:700;font-size:.9rem;color:var(--accent)}
+    .pm-lbl{font-size:.65rem;color:var(--faint)}
+
+    .btm{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:clamp(50px,6vh,72px)}
+    .bk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow-soft)}
+    .bk-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+    .bk-ico{width:32px;height:32px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .bk-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.85rem;color:var(--text)}
+    .bk p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .bk ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .bk ul li{font-size:.78rem;color:var(--muted);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+    .bk ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.42em}
+    .bk ul.imp li::before{width:7px;height:7px;background:var(--success)}
+    .stk{width:100%;font-size:.78rem;border-collapse:collapse}
+    .stk td{padding:4px 0;vertical-align:top}.stk td:first-child{font-family:var(--font-sans);font-weight:600;color:var(--text-soft);padding-right:12px;white-space:nowrap;width:95px}.stk td:last-child{color:var(--muted)}
+
+    @media(max-width:1080px){.proj-cols{grid-template-columns:1fr}}
+    @media(max-width:768px){.hero-sec{padding:96px 0 20px}.btm{grid-template-columns:1fr}.proj-metrics{flex-direction:column}}
+  </style>
+</head>
+<body style="cursor:auto">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="noise-overlay"></div>
+  <nav class="navbar scrolled"><div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="logo-initials">AP</span><span class="logo-name">Atharva Pathak</span></a>
+    <ul class="nav-links"><li><a href="index.html#about" class="nav-link">About</a></li><li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li><li><a href="index.html#expertise" class="nav-link">Expertise</a></li><li><a href="index.html#projects" class="nav-link active">Projects</a></li><li><a href="index.html#experience" class="nav-link">Experience</a></li><li><a href="index.html#contact" class="nav-link">Contact</a></li></ul>
+    <a href="mailto:atharvapathak11@gmail.com" class="nav-cta">Get in touch &#8599;</a>
+  </div></nav>
+  <main>
+    <section class="hero-sec"><div class="pg">
+      <a href="index.html#projects" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>Back to Projects</a>
+      <div class="tag-label">AI &amp; Machine Learning</div>
+      <h1 class="hero-title">GenAI &amp; NLP Engine</h1>
+      <p class="hero-desc">Built multiple Generative AI and NLP models &mdash; Speech-to-Text, sentiment analysis, course recommendation, and price prediction &mdash; achieving 25% reduction in processing time and setting a standard for streamlined automation across the organization.</p>
+      <div class="hero-chips"><span>Python</span><span>NLP</span><span>Generative AI</span><span>Sentiment Analysis</span><span>Speech-to-Text</span><span>Predictive Modeling</span></div>
+    </div></section>
+
+    <div class="pg"><div class="projects-stack">
+
+      <!-- ═══ BLOCK 1: Content Intelligence (Speech-to-Text) ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+          <div><h3>Content Intelligence</h3><p>Generative AI &mdash; Automating audio/video content processing</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">The executive education platform had hours of faculty-recorded audio and video content that was completely unsearchable and unindexed. Every piece of content required manual transcription before it could be cataloged, repurposed, or made discoverable. I built a Speech-to-Text engine using Generative AI that automated this entirely.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> What I Built</h4>
+              <ul>
+                <li>Speech-to-Text engine for automated transcription of faculty lectures and webinars</li>
+                <li>Processing pipeline that takes raw audio/video and outputs structured, searchable text</li>
+                <li>Integration with the content library for automatic indexing and tagging</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Business Impact</h4>
+              <ul>
+                <li>25% reduction in content processing time &mdash; from manual hours to automated minutes</li>
+                <li>Enabled searchable content libraries for the first time &mdash; students could search inside lectures</li>
+                <li>Set the automation standard that was adopted across other content workflows in the organization</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">25%</div><div class="pm-lbl">Processing time reduction</div></div>
+            <div class="pm"><div class="pm-val">Automated</div><div class="pm-lbl">Previously manual transcription</div></div>
+            <div class="pm"><div class="pm-val">Org-wide</div><div class="pm-lbl">Standard set for automation</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ BLOCK 2: User Understanding (NLP Sentiment + Personas) ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <div><h3>User Understanding</h3><p>NLP &mdash; Turning unstructured reviews into actionable personas</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Student reviews were scattered across Google, app stores, social media, and internal feedback forms &mdash; all unstructured text with no systematic way to extract insights. I engineered an NLP model that processed reviews from multiple platforms, generated sentiment scores, and contributed to building valuable user personas that product and marketing teams actually used for decision-making.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> What I Built</h4>
+              <ul>
+                <li>NLP pipeline ingesting reviews from Google, app stores, social media, and internal forms</li>
+                <li>Sentiment scoring model classifying feedback as positive, negative, or neutral with topic extraction</li>
+                <li>User persona framework built from sentiment patterns &mdash; used by product and marketing teams</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> How It Was Used</h4>
+              <ul>
+                <li>Product team used personas to prioritize feature development and course improvements</li>
+                <li>Marketing team used sentiment data to craft targeted messaging and address pain points</li>
+                <li>Leadership used aggregated sentiment trends in quarterly business reviews</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">Multi-platform</div><div class="pm-lbl">Google, App Stores, Social, Internal</div></div>
+            <div class="pm"><div class="pm-val">Personas created</div><div class="pm-lbl">Used by Product &amp; Marketing</div></div>
+            <div class="pm"><div class="pm-val">Quarterly</div><div class="pm-lbl">Presented to Senior Management</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ BLOCK 3: Recommendation & Pricing (ML Models) ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div><h3>Course Recommendation &amp; Price Prediction</h3><p>Machine Learning &mdash; Right course, right person, right price</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Two connected ML models that served the same business goal: getting the right course to the right learner at the right price. The recommendation engine matched learners with courses based on their behavior, goals, and enrollment patterns. The price prediction model optimized pricing based on market dynamics, competitor benchmarks, and demand signals.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Course Recommendation</h4>
+              <ul>
+                <li>ML model analyzing learner behavior, browsing history, and enrollment patterns</li>
+                <li>Personalized course suggestions surfaced to prospective students</li>
+                <li>Improved course discovery for learners who didn't know what to pick</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Price Prediction</h4>
+              <ul>
+                <li>Predictive model factoring in market dynamics, competitor pricing, and demand signals</li>
+                <li>Optimized pricing for new and existing courses to maximize enrollment and revenue</li>
+                <li>Informed go-to-market pricing strategy for program launches</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">Enrollment uplift</div><div class="pm-lbl">Via personalized recommendations</div></div>
+            <div class="pm"><div class="pm-val">Pricing optimized</div><div class="pm-lbl">Data-driven instead of intuition</div></div>
+            <div class="pm"><div class="pm-val">Revenue impact</div><div class="pm-lbl">Better conversion &amp; course fit</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- Bottom 2x2 -->
+    <div class="pg"><div class="btm">
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Why I Built This</h3></div><p>The executive education platform faced three core challenges: hours of content locked in audio/video with no searchability, student feedback scattered across platforms with no way to extract insights, and course matching based on generic logic rather than learner behavior. Each model addressed a specific gap.</p></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>What I Built</h3></div><ul><li>Speech-to-Text GenAI engine for automated content transcription and indexing</li><li>NLP sentiment model processing reviews from multiple platforms into user personas</li><li>Course recommendation engine based on learner behavior and enrollment patterns</li><li>Price prediction model for data-driven course pricing optimization</li></ul></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>Tech Stack</h3></div><table class="stk"><tr><td>Language</td><td>Python</td></tr><tr><td>GenAI</td><td>Speech-to-Text models</td></tr><tr><td>NLP</td><td>Sentiment analysis, topic extraction</td></tr><tr><td>ML</td><td>Recommendation, price prediction</td></tr><tr><td>Visualization</td><td>Power BI, Advanced Excel</td></tr><tr><td>Presented to</td><td>Company MD &amp; Senior Management</td></tr></table></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Impact &amp; Outcomes</h3></div><ul class="imp"><li>25% reduction in content processing time</li><li>User personas adopted by Product and Marketing teams</li><li>Improved course discovery and enrollment via recommendations</li><li>Data-driven pricing replacing intuition-based decisions</li><li>Set automation standard adopted across the organization</li><li>Insights presented to Company MD and Senior Management</li></ul></div>
+    </div></div>
+  </main>
+  <footer class="footer"><div class="footer-inner"><p class="footer-copy">&copy; 2026 Atharva Pathak.</p><a href="index.html" class="back-top">Back to Home &uarr;</a></div></footer>
+  <button class="back-to-top-float" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <script>var sp=document.getElementById("scrollProgress");window.addEventListener("scroll",function(){if(!sp)return;var h=document.documentElement.scrollHeight-window.innerHeight;sp.style.width=h>0?(window.scrollY/h)*100+"%":"0%"},{passive:true});var btt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(btt)btt.classList.toggle("visible",window.scrollY>400)},{passive:true});if(btt)btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});</script>
+</body>
+</html>

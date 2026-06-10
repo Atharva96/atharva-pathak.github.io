@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AI Sales Copilot | Atharva Pathak</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .pg{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
+
+    /* Hero — compact */
+    .hero-sec{padding:110px 0 28px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:.8rem;font-weight:600;color:var(--accent);padding:6px 14px;border-radius:8px;border:1px solid rgba(37,99,235,.16);background:rgba(255,255,255,.7);margin-bottom:16px;transition:background .2s,transform .2s}
+    .back-link:hover{background:var(--accent-soft);transform:translateX(-3px)}
+    .back-link svg{width:14px;height:14px}
+    .tag-label{display:inline-block;font-family:var(--font-sans);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);margin-bottom:12px}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:10px}
+    .hero-desc{font-size:.9rem;color:var(--muted);line-height:1.72;max-width:680px;margin-bottom:16px}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .hero-chips span{font-family:var(--font-sans);font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);color:var(--accent-strong)}
+
+    /* 2-col: left features + right chat */
+    .main-area{display:grid;grid-template-columns:.7fr 1.3fr;gap:32px;padding:28px 0 40px;align-items:start}
+
+    /* Left features — compact */
+    .features{display:flex;flex-direction:column;gap:20px}
+    .feat{display:flex;gap:12px;align-items:flex-start}
+    .feat-ico{width:38px;height:38px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .feat h4{font-family:var(--font-sans);font-weight:700;font-size:.84rem;color:var(--text);margin-bottom:2px}
+    .feat p{font-size:.78rem;color:var(--muted);line-height:1.55}
+
+    /* Chat window */
+    .chat{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-soft);overflow:hidden;display:flex;flex-direction:column}
+    .chat-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
+    .chat-bot{display:flex;align-items:center;gap:10px}
+    .chat-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .chat-av svg{width:18px;height:18px;color:#fff}
+    .chat-bot-info h3{font-family:var(--font-sans);font-weight:700;font-size:.85rem;color:var(--text)}
+    .chat-bot-info h3 .online{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--success);margin-left:5px;vertical-align:middle}
+    .chat-bot-info p{font-size:.68rem;color:var(--faint)}
+    .new-chat{font-family:var(--font-sans);font-size:.72rem;font-weight:600;color:var(--accent);padding:5px 10px;border-radius:8px;border:1px solid rgba(37,99,235,.16);background:rgba(255,255,255,.7);display:flex;align-items:center;gap:4px}
+    .chat-body{padding:14px 18px;display:flex;flex-direction:column;gap:10px;background:rgba(248,251,255,.5);flex:1}
+    .user-msg{align-self:flex-end;max-width:85%;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+    .user-bubble{background:var(--accent);color:#fff;font-size:.8rem;padding:9px 14px;border-radius:14px 14px 4px 14px;line-height:1.45}
+    .msg-time{font-size:.6rem;color:var(--faint);display:flex;align-items:center;gap:3px}
+    .msg-time svg{width:11px;height:11px;color:var(--accent)}
+    .bot-msg{align-self:flex-start;max-width:95%;display:flex;gap:8px;align-items:flex-start}
+    .bot-av-sm{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .bot-av-sm svg{width:13px;height:13px;color:#fff}
+    .bot-content{display:flex;flex-direction:column;gap:8px}
+    .bot-text{font-size:.8rem;color:var(--text-soft);line-height:1.45}
+    .chat-table{width:100%;border-collapse:collapse;font-size:.76rem;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .chat-table th{text-align:left;font-family:var(--font-sans);font-size:.65rem;font-weight:600;color:var(--faint);letter-spacing:.05em;text-transform:uppercase;padding:8px 12px;background:rgba(248,251,255,.8);border-bottom:2px solid var(--line-strong)}
+    .chat-table td{padding:7px 12px;border-bottom:1px solid var(--line);color:var(--muted)}
+    .chat-table td:first-child{color:var(--text);font-weight:500}
+    .chat-table tr:last-child td{border-bottom:none;font-weight:700;color:var(--accent)}
+    .chat-chart{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+    .chart-title{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:var(--text);margin-bottom:1px}
+    .chart-sub{font-size:.65rem;color:var(--faint);margin-bottom:10px}
+    .chart-svg{width:100%;height:auto}
+    .chat-input{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid var(--line);background:#fff}
+    .chat-input input{flex:1;background:rgba(248,251,255,.8);border:1px solid var(--line);border-radius:24px;padding:9px 16px;font-size:.8rem;color:var(--text);outline:none;font-family:var(--font-body)}
+    .chat-input input::placeholder{color:var(--faint)}
+    .send-btn{width:34px;height:34px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:none;cursor:pointer}
+    .send-btn svg{width:15px;height:15px;color:#fff}
+
+    /* Bottom blocks — compact 2x2 */
+    .btm{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:clamp(56px,7vh,80px)}
+    .bk{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow-soft)}
+    .bk-hd{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+    .bk-ico{width:32px;height:32px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .bk-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.88rem;color:var(--text)}
+    .bk p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .bk ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+    .bk ul li{font-size:.8rem;color:var(--muted);line-height:1.6;display:flex;gap:8px;align-items:flex-start}
+    .bk ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.45em}
+    .bk ul.imp li::before{width:7px;height:7px;background:var(--success)}
+    .stk{width:100%;font-size:.8rem;border-collapse:collapse}
+    .stk td{padding:4px 0;vertical-align:top}.stk td:first-child{font-family:var(--font-sans);font-weight:600;color:var(--text-soft);padding-right:12px;white-space:nowrap;width:100px}.stk td:last-child{color:var(--muted)}
+
+    @media(max-width:1080px){.main-area{grid-template-columns:1fr}}
+    @media(max-width:768px){.hero-sec{padding:96px 0 24px}.btm{grid-template-columns:1fr}}
+  </style>
+</head>
+<body style="cursor:auto">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="noise-overlay"></div>
+  <nav class="navbar scrolled"><div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="logo-initials">AP</span><span class="logo-name">Atharva Pathak</span></a>
+    <ul class="nav-links"><li><a href="index.html#about" class="nav-link">About</a></li><li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li><li><a href="index.html#expertise" class="nav-link">Expertise</a></li><li><a href="index.html#projects" class="nav-link active">Projects</a></li><li><a href="index.html#experience" class="nav-link">Experience</a></li><li><a href="index.html#contact" class="nav-link">Contact</a></li></ul>
+    <a href="mailto:atharvapathak11@gmail.com" class="nav-cta">Get in touch &#8599;</a>
+  </div></nav>
+  <main>
+    <!-- HERO (compact) -->
+    <section class="hero-sec"><div class="pg">
+      <a href="index.html#projects" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>Back to Projects</a>
+      <div class="tag-label">AI &amp; Analytics</div>
+      <h1 class="hero-title">AI Sales Copilot</h1>
+      <p class="hero-desc">An AI-powered assistant that converts natural language business questions into optimized SQL and delivers accurate, instant insights from enterprise data.</p>
+      <div class="hero-chips"><span>Microsoft Copilot Studio</span><span>Azure OpenAI</span><span>Azure Synapse</span><span>SQL Server</span><span>Power Automate</span><span>Azure AD / RLS</span></div>
+    </div></section>
+
+    <!-- 2-COL: Features + Chat (NO duplicate highlights bar) -->
+    <div class="pg"><div class="main-area">
+      <div class="features">
+        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div><h4>Natural Language to SQL</h4><p>Ask questions in plain English and get accurate SQL queries instantly.</p></div></div>
+        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><h4>Self-service Insights</h4><p>Empowers business users to explore data without BI team dependency.</p></div></div>
+        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div><h4>Secure &amp; Governed</h4><p>Role-based access, validated responses, and enterprise-grade security.</p></div></div>
+        <div class="feat"><div class="feat-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h4>Faster Decisions</h4><p>Reduces ad-hoc requests and accelerates data-driven decision making.</p></div></div>
+      </div>
+
+      <!-- Chat Window -->
+      <div class="chat">
+        <div class="chat-header">
+          <div class="chat-bot">
+            <div class="chat-av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="3"/></svg></div>
+            <div class="chat-bot-info"><h3>Sales Copilot <span class="online"></span></h3><p>Ask any sales-related question in natural language</p></div>
+          </div>
+          <div class="new-chat"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> New Chat</div>
+        </div>
+        <div class="chat-body">
+          <!-- Turn 1: Sales by region -->
+          <div class="user-msg">
+            <div class="user-bubble">What is the total sales for May 2026 by region?</div>
+            <div class="msg-time">10:18 AM <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/><polyline points="20 12 9 23 4 18"/></svg></div>
+          </div>
+          <div class="bot-msg">
+            <div class="bot-av-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="3"/></svg></div>
+            <div class="bot-content">
+              <div class="bot-text">Here is the total sales for May 2026 by region.</div>
+              <table class="chat-table">
+                <thead><tr><th>Region</th><th>Total Sales (&#8377;)</th></tr></thead>
+                <tbody>
+                  <tr><td>West</td><td>&#8377;52.34 Cr</td></tr>
+                  <tr><td>North</td><td>&#8377;41.87 Cr</td></tr>
+                  <tr><td>South</td><td>&#8377;35.61 Cr</td></tr>
+                  <tr><td>East</td><td>&#8377;26.18 Cr</td></tr>
+                  <tr><td>Central</td><td>&#8377;18.92 Cr</td></tr>
+                  <tr><td>Total</td><td>&#8377;174.92 Cr</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Turn 2: Chart -->
+          <div class="user-msg">
+            <div class="user-bubble">Show me a chart for total sales by region split.</div>
+            <div class="msg-time">10:21 AM <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/><polyline points="20 12 9 23 4 18"/></svg></div>
+          </div>
+          <div class="bot-msg">
+            <div class="bot-av-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="3"/></svg></div>
+            <div class="bot-content">
+              <div class="bot-text">Here is the total sales by region split for May 2026.</div>
+              <div class="chat-chart">
+                <div class="chart-title">Total Sales by Region (May 2026)</div>
+                <div class="chart-sub">Amount in &#8377; Crore &middot; Low to High</div>
+                <svg class="chart-svg" viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="60" y1="15" x2="60" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+                  <line x1="60" y1="150" x2="460" y2="150" stroke="#e2e8f0" stroke-width="1"/>
+                  <line x1="60" y1="115" x2="460" y2="115" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="4"/>
+                  <line x1="60" y1="80" x2="460" y2="80" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="4"/>
+                  <line x1="60" y1="45" x2="460" y2="45" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="4"/>
+                  <text x="52" y="153" font-size="9" fill="#94a3b8" text-anchor="end" font-family="DM Sans">0</text>
+                  <text x="52" y="118" font-size="9" fill="#94a3b8" text-anchor="end" font-family="DM Sans">20</text>
+                  <text x="52" y="83" font-size="9" fill="#94a3b8" text-anchor="end" font-family="DM Sans">40</text>
+                  <text x="52" y="48" font-size="9" fill="#94a3b8" text-anchor="end" font-family="DM Sans">60</text>
+                  <text x="100" y="168" font-size="9" fill="#94a3b8" text-anchor="middle" font-family="DM Sans">Central</text>
+                  <text x="200" y="168" font-size="9" fill="#94a3b8" text-anchor="middle" font-family="DM Sans">East</text>
+                  <text x="300" y="168" font-size="9" fill="#94a3b8" text-anchor="middle" font-family="DM Sans">South</text>
+                  <text x="380" y="168" font-size="9" fill="#94a3b8" text-anchor="middle" font-family="DM Sans">North</text>
+                  <text x="450" y="168" font-size="9" fill="#94a3b8" text-anchor="middle" font-family="DM Sans">West</text>
+                  <path d="M100,122 L200,95 L300,75 L380,60 L450,38 L450,150 L100,150 Z" fill="url(#ag)" opacity="0.3"/>
+                  <polyline points="100,122 200,95 300,75 380,60 450,38" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="100" cy="122" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+                  <text x="100" y="114" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="600" font-family="DM Sans">&#8377;18.92Cr</text>
+                  <circle cx="200" cy="95" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+                  <text x="200" y="87" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="600" font-family="DM Sans">&#8377;26.18Cr</text>
+                  <circle cx="300" cy="75" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+                  <text x="300" y="67" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="600" font-family="DM Sans">&#8377;35.61Cr</text>
+                  <circle cx="380" cy="60" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+                  <text x="380" y="52" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="600" font-family="DM Sans">&#8377;41.87Cr</text>
+                  <circle cx="450" cy="38" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+                  <text x="450" y="30" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="600" font-family="DM Sans">&#8377;52.34Cr</text>
+                  <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2563eb" stop-opacity="0.18"/><stop offset="100%" stop-color="#2563eb" stop-opacity="0.02"/></linearGradient></defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Ask another question..." disabled/>
+          <button class="send-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- BOTTOM 2x2 -->
+    <div class="pg"><div class="btm">
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Why I Built This</h3></div><p>Business users relied on BI team for every ad-hoc sales query. Manual query handling caused delays in decision-making. Needed a self-service, governed solution for quick, accurate sales insights.</p></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>What I Built</h3></div><ul><li>AI Copilot using Copilot Studio with a child agent for NL to SQL conversion</li><li>Connected to enterprise data in Azure Synapse SQL pool</li><li>Secure execution with role-based data access and validation</li><li>Clean, conversational UI for business users</li></ul></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>Tech Stack</h3></div><table class="stk"><tr><td>AI / LLM</td><td>Azure OpenAI</td></tr><tr><td>Platform</td><td>Microsoft Copilot Studio</td></tr><tr><td>Orchestration</td><td>Power Automate</td></tr><tr><td>Data Platform</td><td>Azure Synapse Analytics</td></tr><tr><td>Database</td><td>SQL Server</td></tr><tr><td>Security</td><td>Azure AD, RLS</td></tr></table></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Impact &amp; Outcomes</h3></div><ul class="imp"><li>70% reduction in ad-hoc request turnaround</li><li>Empowered 100+ users for self-service analytics</li><li>Improved data-driven decision making</li><li>High adoption across Sales leadership</li><li>Scalable &amp; governed enterprise solution</li></ul></div>
+    </div></div>
+  </main>
+  <footer class="footer"><div class="footer-inner"><p class="footer-copy">&copy; 2026 Atharva Pathak.</p><a href="index.html" class="back-top">Back to Home &uarr;</a></div></footer>
+  <button class="back-to-top-float" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <script>
+    var sp=document.getElementById("scrollProgress");window.addEventListener("scroll",function(){if(!sp)return;var h=document.documentElement.scrollHeight-window.innerHeight;sp.style.width=h>0?(window.scrollY/h)*100+"%":"0%"},{passive:true});
+    var btt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(btt)btt.classList.toggle("visible",window.scrollY>400)},{passive:true});
+    if(btt)btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+  </script>
+</body>
+</html>

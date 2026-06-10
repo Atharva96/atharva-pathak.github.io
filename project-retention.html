@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Customer Analytics & Retention | Atharva Pathak</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-weight='800' font-size='28' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .pg{max-width:var(--max);margin:0 auto;padding:0 var(--pad-x)}
+    .hero-sec{padding:110px 0 24px}
+    .back-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:.8rem;font-weight:600;color:var(--accent);padding:6px 14px;border-radius:8px;border:1px solid rgba(37,99,235,.16);background:rgba(255,255,255,.7);margin-bottom:16px;transition:background .2s,transform .2s}
+    .back-link:hover{background:var(--accent-soft);transform:translateX(-3px)}
+    .back-link svg{width:14px;height:14px}
+    .tag-label{display:inline-block;font-family:var(--font-sans);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);margin-bottom:12px}
+    .hero-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.02em;color:var(--text);margin-bottom:10px}
+    .hero-desc{font-size:.88rem;color:var(--muted);line-height:1.72;max-width:700px;margin-bottom:16px}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+    .hero-chips span{font-family:var(--font-sans);font-size:.72rem;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);color:var(--accent-strong)}
+
+    /* 3 distinct project blocks — vertical */
+    .projects-stack{display:flex;flex-direction:column;gap:24px;padding:28px 0 40px}
+    .proj-block{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-soft);overflow:hidden}
+    .proj-hd{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+    .proj-hd-ico{width:36px;height:36px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .proj-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.9rem;color:var(--text)}
+    .proj-hd p{font-size:.72rem;color:var(--faint);margin-top:1px}
+    .proj-body{padding:18px 20px}
+    .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+    .proj-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .proj-col h4{font-family:var(--font-sans);font-weight:700;font-size:.8rem;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+    .proj-col ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .proj-col ul li{font-size:.78rem;color:var(--muted);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+    .proj-col ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.42em}
+    .proj-metrics{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+    .pm{padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:rgba(248,251,255,.6);display:flex;flex-direction:column;gap:2px;flex:1;min-width:120px}
+    .pm-val{font-family:var(--font-body);font-weight:700;font-size:.9rem;color:var(--accent)}
+    .pm-lbl{font-size:.65rem;color:var(--faint)}
+
+    /* KPI table */
+    .proj-tbl-title{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:var(--text);margin:16px 0 8px}
+    table.proj-tbl{width:100%;border-collapse:collapse;font-size:.74rem;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+    .proj-tbl th{text-align:left;font-family:var(--font-body);font-size:.6rem;font-weight:500;color:var(--faint);padding:8px 10px;background:rgba(248,251,255,.8);border-bottom:2px solid var(--line-strong)}
+    .proj-tbl td{padding:8px 10px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.73rem}
+    .proj-tbl td:first-child{color:var(--text);font-weight:500}
+    .proj-tbl .grn{color:var(--success);font-weight:600}
+    .proj-tbl .red{color:#dc2626;font-weight:600}
+
+    /* Bottom blocks */
+    .btm{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:clamp(50px,6vh,72px)}
+    .bk{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow-soft)}
+    .bk-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+    .bk-ico{width:32px;height:32px;border-radius:50%;background:rgba(37,99,235,.05);border:1px solid rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .bk-hd h3{font-family:var(--font-sans);font-weight:700;font-size:.85rem;color:var(--text)}
+    .bk p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .bk ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+    .bk ul li{font-size:.78rem;color:var(--muted);line-height:1.55;display:flex;gap:8px;align-items:flex-start}
+    .bk ul li::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa);margin-top:.42em}
+    .bk ul.imp li::before{width:7px;height:7px;background:var(--success)}
+    .stk{width:100%;font-size:.78rem;border-collapse:collapse}
+    .stk td{padding:4px 0;vertical-align:top}.stk td:first-child{font-family:var(--font-sans);font-weight:600;color:var(--text-soft);padding-right:12px;white-space:nowrap;width:95px}.stk td:last-child{color:var(--muted)}
+
+    @media(max-width:1080px){.proj-cols{grid-template-columns:1fr}}
+    @media(max-width:768px){.hero-sec{padding:96px 0 20px}.btm{grid-template-columns:1fr}.proj-metrics{flex-direction:column}}
+  </style>
+</head>
+<body style="cursor:auto">
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="noise-overlay"></div>
+  <nav class="navbar scrolled"><div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="logo-initials">AP</span><span class="logo-name">Atharva Pathak</span></a>
+    <ul class="nav-links"><li><a href="index.html#about" class="nav-link">About</a></li><li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li><li><a href="index.html#expertise" class="nav-link">Expertise</a></li><li><a href="index.html#projects" class="nav-link active">Projects</a></li><li><a href="index.html#experience" class="nav-link">Experience</a></li><li><a href="index.html#contact" class="nav-link">Contact</a></li></ul>
+    <a href="mailto:atharvapathak11@gmail.com" class="nav-cta">Get in touch &#8599;</a>
+  </div></nav>
+  <main>
+    <section class="hero-sec"><div class="pg">
+      <a href="index.html#projects" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>Back to Projects</a>
+      <div class="tag-label">Customer Analytics</div>
+      <h1 class="hero-title">Customer Analytics &amp; Retention</h1>
+      <p class="hero-desc">Python-based ecommerce analytics for Adidas Germany &mdash; analyzing customer behavior, buying patterns, and key ecommerce KPIs to drive retention, reduce acquisition costs, and improve customer lifetime value.</p>
+      <div class="hero-chips"><span>Python</span><span>MicroStrategy</span><span>Power BI</span><span>Advanced Excel</span><span>Ecommerce Analytics</span><span>Customer Segmentation</span></div>
+    </div></section>
+
+    <div class="pg"><div class="projects-stack">
+
+      <!-- ═══ BLOCK 1: Customer Behavior Analysis ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><h3>Customer Behavior Analysis</h3><p>Python-based deep dive into Adidas Germany ecommerce data</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Used Python to analyze customer behavior across the Adidas Germany ecommerce platform &mdash; purchase frequency, browsing patterns, cart abandonment, repeat purchase behavior, and product affinity. The analysis segmented customers into actionable cohorts and identified key drivers of churn and retention.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> What I Analyzed</h4>
+              <ul>
+                <li>Purchase frequency and recency patterns across customer segments</li>
+                <li>Cart abandonment rates and drop-off points in the funnel</li>
+                <li>Repeat purchase behavior and product category affinity</li>
+                <li>Customer lifecycle stages &mdash; new, active, at-risk, dormant</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Outcomes</h4>
+              <ul>
+                <li>10% improvement in customer retention through targeted interventions</li>
+                <li>5% increase in customer lifetime value via upsell/cross-sell recommendations</li>
+                <li>15% reduction in customer acquisition costs by focusing on high-value segments</li>
+                <li>Identified top churn signals enabling proactive retention campaigns</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">+10%</div><div class="pm-lbl">Customer retention</div></div>
+            <div class="pm"><div class="pm-val">+5%</div><div class="pm-lbl">Customer lifetime value</div></div>
+            <div class="pm"><div class="pm-val">-15%</div><div class="pm-lbl">Acquisition cost reduction</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ BLOCK 2: Ecommerce KPI Monitoring ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+          <div><h3>Ecommerce KPI Monitoring</h3><p>End-to-end model tracking sales, users, installations, and net revenue</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Engineered an end-to-end KPI model using Advanced Excel that calculated marketing collaterals, new user metrics, app installations, dormant users, and net sales. This top-to-bottom approach tracked every stage of the ecommerce funnel from awareness to purchase to retention.</p>
+          <div class="proj-tbl-title">Ecommerce KPI Dashboard</div>
+          <table class="proj-tbl">
+            <thead><tr><th>KPI</th><th>Current Period</th><th>Previous Period</th><th>Change</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Net Revenue</td><td>&euro;4.82M</td><td>&euro;4.31M</td><td class="grn">+11.8%</td><td class="grn">On Track</td></tr>
+              <tr><td>New Users</td><td>128,400</td><td>114,200</td><td class="grn">+12.4%</td><td class="grn">On Track</td></tr>
+              <tr><td>App Installations</td><td>42,600</td><td>38,900</td><td class="grn">+9.5%</td><td class="grn">On Track</td></tr>
+              <tr><td>Cart Abandonment</td><td>68.2%</td><td>71.4%</td><td class="grn">-3.2pp</td><td class="grn">Improved</td></tr>
+              <tr><td>Repeat Purchase Rate</td><td>34.8%</td><td>31.6%</td><td class="grn">+3.2pp</td><td class="grn">Improved</td></tr>
+              <tr><td>Dormant Users</td><td>18,200</td><td>22,100</td><td class="grn">-17.6%</td><td class="grn">Reduced</td></tr>
+            </tbody>
+          </table>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">+12%</div><div class="pm-lbl">Overall revenue surge</div></div>
+            <div class="pm"><div class="pm-val">+7%</div><div class="pm-lbl">Customer satisfaction</div></div>
+            <div class="pm"><div class="pm-val">Monthly</div><div class="pm-lbl">Reporting cadence</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ BLOCK 3: Reporting Automation ═══ -->
+      <div class="proj-block">
+        <div class="proj-hd">
+          <div class="proj-hd-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div><h3>Reporting Automation &amp; Dashboarding</h3><p>Migrated static reports to interactive dashboards</p></div>
+        </div>
+        <div class="proj-body">
+          <p class="proj-desc">Replaced manual PowerPoint-based reporting with interactive Power BI and MicroStrategy dashboards. Also formulated monthly and quarterly business review reports with actionable campaign recommendations &mdash; driving a 20% increase in client satisfaction.</p>
+          <div class="proj-cols">
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> What I Built</h4>
+              <ul>
+                <li>Automated PowerPoint decks into interactive Power BI dashboards</li>
+                <li>MicroStrategy (MSTR) dashboards for operational KPI monitoring</li>
+                <li>Monthly and quarterly business review reports</li>
+                <li>Actionable campaign adjustment recommendations</li>
+              </ul>
+            </div>
+            <div class="proj-col">
+              <h4><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Impact</h4>
+              <ul>
+                <li>20% increase in client satisfaction with business review reports</li>
+                <li>Eliminated manual report creation &mdash; fully automated refresh</li>
+                <li>Improved stakeholder engagement and comprehension of complex data</li>
+                <li>15% revenue upswing from strategy recommendations via MSTR</li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="pm"><div class="pm-val">+20%</div><div class="pm-lbl">Client satisfaction</div></div>
+            <div class="pm"><div class="pm-val">+15%</div><div class="pm-lbl">Revenue from recommendations</div></div>
+            <div class="pm"><div class="pm-val">0 hrs</div><div class="pm-lbl">Manual reporting effort</div></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- Bottom 2x2 -->
+    <div class="pg"><div class="btm">
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Why I Built This</h3></div><p>Adidas Germany's ecommerce team lacked visibility into customer behavior patterns. Campaign performance was measured inconsistently. Reporting was manual and time-consuming. Needed a systematic approach to understand customers, track KPIs, and automate insights delivery.</p></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>What I Built</h3></div><ul><li>Python-based customer behavior analysis (segmentation, churn, LTV)</li><li>End-to-end ecommerce KPI model (users, installs, dormant, net sales)</li><li>Interactive Power BI &amp; MicroStrategy dashboards replacing manual reports</li><li>Monthly/quarterly business review reports with campaign recommendations</li></ul></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><h3>Tech Stack</h3></div><table class="stk"><tr><td>Language</td><td>Python (pandas, matplotlib)</td></tr><tr><td>BI Tools</td><td>MicroStrategy (MSTR), Power BI</td></tr><tr><td>Analysis</td><td>Advanced Excel, Pivot Tables</td></tr><tr><td>Methods</td><td>Cohort Analysis, RFM Segmentation</td></tr><tr><td>Domain</td><td>Ecommerce KPIs, Adidas Germany</td></tr></table></div>
+      <div class="bk"><div class="bk-hd"><div class="bk-ico"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><h3>Impact &amp; Outcomes</h3></div><ul class="imp"><li>10% improvement in customer retention</li><li>15% reduction in customer acquisition costs</li><li>12% surge in overall revenue</li><li>20% increase in client satisfaction</li><li>Eliminated manual reporting &mdash; fully automated</li></ul></div>
+    </div></div>
+  </main>
+  <footer class="footer"><div class="footer-inner"><p class="footer-copy">&copy; 2026 Atharva Pathak.</p><a href="index.html" class="back-top">Back to Home &uarr;</a></div></footer>
+  <button class="back-to-top-float" id="backToTop" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <script>var sp=document.getElementById("scrollProgress");window.addEventListener("scroll",function(){if(!sp)return;var h=document.documentElement.scrollHeight-window.innerHeight;sp.style.width=h>0?(window.scrollY/h)*100+"%":"0%"},{passive:true});var btt=document.getElementById("backToTop");window.addEventListener("scroll",function(){if(btt)btt.classList.toggle("visible",window.scrollY>400)},{passive:true});if(btt)btt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});</script>
+</body>
+</html>
